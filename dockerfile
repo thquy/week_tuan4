@@ -13,9 +13,8 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT
 # Copy WAR vào ROOT.war
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Render sẽ cung cấp biến PORT
-ENV PORT=8080
-EXPOSE ${PORT}
+# Render sẽ cấp PORT -> không set ENV PORT=8080
+EXPOSE 10000
 
-# Chạy Tomcat và thay cổng mặc định bằng $PORT
-CMD ["sh", "-c", "sed -i \"s/8080/${PORT}/\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]
+# Sửa server.xml để dùng $PORT và chạy Tomcat
+CMD ["sh", "-c", "sed -i 's/port=\"8080\"/port=\"${PORT}\"/' /usr/local/tomcat/conf/server.xml && catalina.sh run"]
