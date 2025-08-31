@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Bai_tap_t4">
+    <output-path>$PROJECT_DIR$/out/artifacts/Bai_tap_t4</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Bai_tap" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Bai_tap/web/Web" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/java/webapp" />
+    </root>
+  </artifact>
+</component>
