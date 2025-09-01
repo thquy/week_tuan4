@@ -11,10 +11,10 @@ FROM tomcat:10.1-jdk17
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # Copy WAR vào ROOT.war
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /Bai_tap_t4/target/Bai_tap-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 # Render sẽ cấp PORT động
-EXPOSE 10000
+EXPOSE 8080
 
 # Thay 8080 bằng $PORT và chạy Tomcat
-CMD sh -c "sed -i 's/port=\"8080\"/port=\"$PORT\"/' /usr/local/tomcat/conf/server.xml && catalina.sh run"
+CMD ["catalina.sh","run"]
